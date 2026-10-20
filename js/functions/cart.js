@@ -1,7 +1,7 @@
 import { getExistingGames } from "./utils.js";
 
 const games = getExistingGames();
-const url = "https://api.noroff.dev/api/v1/gamehub/";
+const url = "https://v2.api.noroff.dev/gamehub/";
 
 export const cartContainer = document.querySelector(".container-item-price");
 

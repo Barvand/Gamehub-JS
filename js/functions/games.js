@@ -3,7 +3,7 @@ import { getExistingGames } from "./utils.js";
 const resultsContainer = document.querySelector(".container-productpage");
 const errorContainer = document.querySelector(".container-wrapper");
 
-const url = "https://api.noroff.dev/api/v1/gamehub";
+const url = "https://v2.api.noroff.dev/gamehub";
 
 // Renders HTML on the product page
 export async function renderProductPage(data) {
@@ -17,19 +17,17 @@ export async function renderProductPage(data) {
     for (let i = 0; i < data.length; i++) {
       const product = data[i];
 
-     
-
       const elementDiv = document.createElement("div");
       elementDiv.classList.add("item-product-page");
       resultsContainer.appendChild(elementDiv);
-      elementDiv.dataset.productId = data[i].id; 
+      elementDiv.dataset.productId = data[i].id;
 
-      const anchorElement = document.createElement("a"); 
-      anchorElement.classList.add("product-page-link"); 
+      const anchorElement = document.createElement("a");
+      anchorElement.classList.add("product-page-link");
       anchorElement.href = "product-page.html?id=" + product.id;
       anchorElement.append(elementDiv);
 
-      resultsContainer.appendChild(anchorElement)
+      resultsContainer.appendChild(anchorElement);
 
       const imageElement = document.createElement("img");
       imageElement.classList.add("Game-cover-image");
@@ -112,8 +110,7 @@ export function handleClick() {
   } else {
     alert(`Item already added to the cart`);
   }
-  }
-
+}
 
 function saveGames(games) {
   localStorage.setItem("games", JSON.stringify(games));

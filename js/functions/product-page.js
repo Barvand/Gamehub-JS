@@ -5,7 +5,7 @@ const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-const url = "https://api.noroff.dev/api/v1/gamehub/" + id;
+const url = "https://v2.api.noroff.dev/gamehub/" + id;
 
 // function that displays HTML on the product page.
 export async function displayContent() {
@@ -15,7 +15,9 @@ export async function displayContent() {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const details = await response.json();
+    // API v2 wraps the game in "data" and gives the image as an object
+    const json = await response.json();
+    const details = { ...json.data, image: json.data.image.url };
 
     productContainer.innerHTML = "";
 

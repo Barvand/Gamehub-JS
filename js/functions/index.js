@@ -1,7 +1,7 @@
 const gridContainer = document.querySelector(".grid-item8-container");
 const errorContainer = document.querySelector(".flex-wrapper-deluxe");
 
-const url = "https://api.noroff.dev/api/v1/gamehub";
+const url = "https://v2.api.noroff.dev/gamehub";
 /// functions index page
 
 export async function renderHTML(results) {
